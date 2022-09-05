@@ -1,0 +1,29 @@
+@mixin flex($align-items, $justify-content) {
+  display: flex;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+@mixin mobile{
+    @media only screen and ( max-width:$mobile-width ) {
+        @content
+    }
+};
+@mixin tablet{
+    @media only screen and (max-width: $tablet-width ) {
+        @content
+    }
+};
+@mixin mobileRound{
+    @media only screen and (max-width: $tablet-width ) and (max-height: 400px){
+        @content
+    }
+};
+@mixin tabletPro{
+    @media only screen and (min-width: $tabletPro-width ) and (max-width: 1400px) {
+        @content
+    }
+}
+@mixin shadow($depth) {
+    box-shadow: 0 0 ($depth * 8px) 0 rgba(0,0,0,0.2),
+              ($depth * 2px) ($depth * 4px) ($depth * 4px) 0 rgba(0,0,0,0.25);
+  }

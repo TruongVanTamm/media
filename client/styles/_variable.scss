@@ -1,0 +1,34 @@
+$main-bg: #fff;
+$main-color: #4267b2;
+$dark-mode-color:#FBB96B;
+$text-main-color: #000;
+$text-second-color: #8d8d8d;
+$text-white: #fff;
+
+$btn-main-bg: $main-color;
+$btn-main-color: #fff;
+
+$header-height: 120px;
+$header-tablet-height: 70px;
+$header-mobile-height: 50px;
+$header-shrink-height: 70px;
+$box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+$colors: (
+  'blue': #4267b2,
+  'orange': #fbb96b,
+  'pink': #fe7e73,
+  'white': #fff,
+  'black': #000,
+  'main': $main-color,
+  'yellow':#FFFF00,
+  'brown': brown,
+  'purple': purple,
+  'be': #F5F5DC,
+  'red': red,
+  'green':#00FF00,
+  'aqua':#00FFFF,
+);
+$mobile-width: 599px;
+$tablet-width: 1000px;
+$tabletPro-width: 1001px;
+$numbers: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
