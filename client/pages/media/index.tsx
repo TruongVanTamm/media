@@ -11,9 +11,6 @@ import { Checkbox } from 'antd';
 import ReactLoading from 'react-loading';
 import { useSelector, useDispatch } from 'react-redux';
 import { setpath, back } from '../../actions/counter';
-import store from '../store/store';
-import fs from 'fs';
-import path from 'node:path/win32';
 
 const App: React.FC = () => {
   AWS.config.update({
@@ -86,6 +83,7 @@ const App: React.FC = () => {
   };
 
   const uploadFile = async (File: any) => {
+    console.log(File);
     File.map((item: any) => {
       s3.putObject(
         {
