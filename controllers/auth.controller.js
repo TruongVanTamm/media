@@ -5,7 +5,6 @@ const Op = db.Sequelize.Op;
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 exports.signup = (req, res) => {
-  // Save User to Database
   User.create({
     username: req.body.username,
     email: req.body.email,

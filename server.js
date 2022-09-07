@@ -9,10 +9,7 @@ require("dotenv").config();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-var corsOptions = {
-	origin: "http://localhost:8081",
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 require("./routes/auth.routes")(app);
 require("./routes/user.routes")(app);

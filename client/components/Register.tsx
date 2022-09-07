@@ -1,4 +1,5 @@
 import { Button, Checkbox, DatePicker, Form, Input, Select } from 'antd';
+import axios from 'axios';
 import Link from 'next/link';
 import React from 'react';
 
@@ -10,21 +11,32 @@ const Register: React.FC = () => {
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
   };
-const regexPassWord=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+  const regexPassWord = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+  const handleRegister = async (values: any) => {
+    try {
+      await axios.post('api/auth/signup', { ...values });
+      // localStorage.setItem('firstLogin', true);
+      alert('success');
+    } catch (err) {
+      alert('faile');
+    }
+  };
+
   return (
     <Form
       autoComplete="off"
       labelCol={{ span: 10 }}
       wrapperCol={{ span: 14 }}
       onFinish={(values) => {
-        console.log({ values });
+        handleRegister(values);
       }}
       onFinishFailed={(error) => {
         console.log({ error });
       }}
     >
       <Form.Item
-        name="User name"
+        name="username"
         label="User Name"
         rules={[
           {
@@ -34,7 +46,6 @@ const regexPassWord=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
           { whitespace: true },
           { min: 6 },
         ]}
-        hasFeedback
       >
         <Input placeholder="Type your name" />
       </Form.Item>
@@ -63,7 +74,6 @@ const regexPassWord=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
           },
           { min: 6 },
           {
-            
             validator: (_, value) =>
               value && regexPassWord.test(value)
                 ? Promise.resolve()
