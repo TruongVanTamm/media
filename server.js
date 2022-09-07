@@ -1,37 +1,21 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const mysql = require("mysql2");
-
+const mysql = require("mysql");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const app = express();
 const port = process.env.PORT || 5000;
-
+require("dotenv").config();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
+var corsOptions = {
+	origin: "http://localhost:8081",
+};
+app.use(cors(corsOptions));
 
-const pool = mysql.createPool({
-	connectionLimit: 10,
-	host: "localhost",
-	user: "vantam",
-	password: "anhtam12345",
-	database: "strapi",
-});
-app.get("", (req, res) => {
-	pool.getConnection((err, connection) => {
-        console.log(connection);
-		// if (err) throw err;
-		// console.log(`connection ad id ${connection.id}`);
-
-		// connection.query("SELECT * FROM user", (err, rows) => {
-		// 	connection.release();
-        //     if(!err){
-        //         res.send(rows)
-        //     }
-        //     else{
-        //         console.log(err)
-        //     }
-		// });
-	});
-});
+require("./routes/auth.routes")(app);
+require("./routes/user.routes")(app);
 
 app.listen(port, () => {
 	console.log(`listening on port ${port}`);

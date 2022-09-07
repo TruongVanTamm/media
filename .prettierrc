@@ -1,0 +1,7 @@
+
+{
+    "html.format.wrapAttributes": "auto",
+    "html.format.wrapLineLength": 0,
+    "singleAttributePerLine": true,
+    "singleQuote": true
+}

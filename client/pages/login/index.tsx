@@ -3,7 +3,7 @@ import Login from '../../components/Login'
 
 const index = () => {
   return (
-    <div>
+    <div className="auth-wrap">
       <Login></Login>
     </div>
   )

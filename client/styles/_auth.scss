@@ -1,0 +1,11 @@
+.auth-wrap{
+    height: 100vh;
+    @include flex(center,center);
+    .ant-form {
+        width: 500px;
+    }
+    .ant-form-item-control-input-content{
+        display: flex;
+        justify-content:space-around;
+    }
+}

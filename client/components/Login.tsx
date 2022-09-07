@@ -1,4 +1,5 @@
 import { Button, Checkbox, Form, Input } from 'antd';
+import Link from 'next/link';
 import React from 'react';
 
 const Login: React.FC = () => {
@@ -36,14 +37,22 @@ const Login: React.FC = () => {
         <Input.Password />
       </Form.Item>
 
-      <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
+      <Form.Item
+        name="remember"
+        valuePropName="checked"
+        wrapperCol={{ offset: 8, span: 16 }}
+      >
         <Checkbox>Remember me</Checkbox>
       </Form.Item>
 
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          Submit
+        <Button
+          type="primary"
+          htmlType="submit"
+        >
+          Ok
         </Button>
+        <Button type="primary"><Link href="/register">Register</Link></Button>
       </Form.Item>
     </Form>
   );

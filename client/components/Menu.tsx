@@ -41,7 +41,7 @@ const items: MenuItem[] = [
     getItem('Market', '5'),
   ]),
   getItem('Setting', '6', <FileOutlined />),
-  getItem(<Link href="login">Login</Link>, '7'),
+  getItem(<Link href="login">Logout</Link>, '7'),
 ];
 
 const App: React.FC = () => {
